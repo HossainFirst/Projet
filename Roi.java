@@ -1,6 +1,6 @@
 public class Roi extends Piece{
 
-  public Roi(boolean c){
+  public Roi(String c){
     super(c);
   }
 
@@ -13,7 +13,7 @@ public class Roi extends Piece{
   }
 
   public int typeMouvement(int xPiece, int yPiece, int xDestination, int yDestination){
-    if ((xPiece - xDestination == 1 || xPiece - xDestination == 0 || xPiece - xDestination == -1) && (yPiece - yDestination == 1 || yPiece - yDestination == 0 || yPiece - yDestination == -1))
+    if ((xDepart - xDestination == 1 || xDepart - xDestination == 0 || xDepart - xDestination == -1) && (yDepart - yDestination == 1 || yPiece - yDestination == 0 || yDepart - yDestination == -1))
       //mouvement qui ne requiert pas de check les pieces sur le chemin
       return 1;
     else if (xPiece == 4 && yPiece == yDestination && ((this.couleur && yPiece == 7) || (!this.couleur && yPiece == 0))){
