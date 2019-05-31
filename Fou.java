@@ -9,9 +9,13 @@ public class Fou extends Piece{
   }
 
 
-  public String toString(){
-    return "4";
+  public String toString()
+  {
+    String s = "";
+    s += "|Fou" + Couleur + "|";
+    return s;
   }
+
 
   public int typeMouvement(int xPiece, int yPiece, int xDestination, int yDestination){
     if (xDestination - xPiece == -(yDestination - yPiece)){
