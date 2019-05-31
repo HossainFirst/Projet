@@ -1,5 +1,5 @@
 public class Cavalier extends Piece
-{ 
+{
   public Cavalier(String Couleur)
   {
     super(Couleur);
