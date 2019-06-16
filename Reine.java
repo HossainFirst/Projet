@@ -1,19 +1,33 @@
 public class Reine extends Piece{
 
-  public Reine(String couleur){
-    super(couleur);
+  public Reine(boolean c){
+    super(c);
   }
 
   public Reine(Reine r){
     super(r);
   }
 
-  public String toString()
-  {
+  // public String toString(){
+  //   return "   R   ";
+  // }
+
+
+  public String toString(){
     String s = "";
-    s += "|Reine" + Couleur + "|";
+
+    if (couleur == true) {
+      s = "|   ♛   |";
+    }
+
+    else
+      s = "|   ♕   |";
+
     return s;
   }
+
+
+
 
   public int typeMouvement(int xPiece, int yPiece, int xDestination, int yDestination){
     if (xDestination == xPiece){
