@@ -1,17 +1,28 @@
 public class Roi extends Piece{
 
-  public Roi(String couleur){
-    super(couleur);
+  public Roi(boolean c){
+    super(c);
   }
 
   public Roi(Roi r){
     super(r);
   }
 
- public String toString()
-  {
-    String s = "";
-    s += "|Roi" + Couleur + "|";
+  // public String toString(){
+  //   return "   Ro   ";
+  // }
+
+
+  public String toString(){
+		String s = "";
+
+    if (couleur == true) {
+			s = "|   ♚   |";
+    }
+
+		else
+			s = "|   ♔   |";
+
     return s;
   }
 
