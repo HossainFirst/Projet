@@ -1,39 +1,41 @@
-public abstract class Piece
-{
-  public String Couleur ;
+import java.io.Serializable;
+public abstract class Piece  implements Serializable{
+  public boolean couleur;
+  public boolean aEffectueUnMouvement;
 
-
-  public Piece(String couleur){
-    this.Couleur = couleur;
+  public Piece(boolean c){
+    this.couleur = c;
+    this.aEffectueUnMouvement = false;
   }
 
-  public String getCouleur(){
-    return this.Couleur;
+  public Piece(Piece p){
+    this.couleur = p.getCouleur();
+    this.aEffectueUnMouvement = p.aEffectueUnMouvement;
   }
 
-  public void setCouleur(String couleur){
-    this.Couleur = couleur;
+  public boolean getAEffectueUnMouvement() {
+    return this.aEffectueUnMouvement;
   }
-  /*
-    Regarde quel type de mouvement est effectué:
-    0 -> mouvement impossible
-    1 -> mouvement qui ne requiert pas de check les pieces sur le chemin
-    2 -> mouvement en avant qui requiert qu'il n'y ai pas d'ennemi sur la case de destination
-    3 -> mouvement qui requiert que le pion n'ai pas deja effectué un mouvement et qu'il n'y ai pas d'enemi sur le chemin
-    4 -> mouvement qui requiert qu'il y ai une piece ennemi sur la case d'arrivee
-    5 -> mouvement en diagonale haut gauche + check chemin
-    6 -> mouvement en diagonale haut droite + check chemin
-    7 -> mouvement en diagonale bas gauche + check chemin
-    8 -> mouvement en diagonale bas droite + check chemin
-    9 -> mouvement en ligne haut + check chemin
-    10 -> mouvement en ligne bas + check chemin
-    11 -> mouvement en ligne gauche + check chemin
-    12 -> mouvement en ligne droite + check chemin
-    13 -> grand roque
-    14 -> petit roque
-    */
 
- public abstract int mouvement( int xDepart, int yDepart, int xDestination,  int yDestination);
+  public void effectueUnMouvement() {
+    this.aEffectueUnMouvement = true;
+  }
 
+  public boolean getCouleur(){
+    return this.couleur;
+  }
+
+  public void setCouleur(boolean c){
+    this.couleur = c;
+  }
+
+  public int getAvant(){
+    if (this.couleur)
+      return -1;
+    else
+      return 1;
+  }
+
+  public abstract int typeMouvement(int xPiece, int yPiece, int xDestination, int yDestination);
 
 }
