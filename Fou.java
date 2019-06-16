@@ -9,12 +9,22 @@ public class Fou extends Piece{
   }
 
 
-  public String toString()
-  {
-    String s = "";
-    s += "|Fou" + Couleur + "|";
-    return s;
-  }
+  // public String toString(){
+  //   return "   F   ";
+  // }
+
+  public String toString(){
+ 		String s = "";
+
+     if (couleur == true) {
+ 			s = "|   \u265D   |";
+     }
+
+ 		else
+ 			s = "|   ♗   |";
+
+     return s;
+}
 
 
   public int typeMouvement(int xPiece, int yPiece, int xDestination, int yDestination){
